@@ -1,0 +1,6 @@
+Dockerfile
+docker*
+.dockerignore
+employees.png
+employees.zip
+my.conf

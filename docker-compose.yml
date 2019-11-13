@@ -1,0 +1,20 @@
+version: "3.4"
+
+services:
+  api:
+    build: ./api
+    ports:
+      - "${API_PORT}:8000"
+    volumes:
+      - ./api:/usr/src/api
+    depends_on:
+      - mysql
+
+  mysql:
+    build: ./mysql
+    command: --innodb-use-native-aio=0y
+    ports:
+      - "${MYSQL_PORT}:3306"
+    environment:
+      - MYSQL_DATABASE=employees
+      - MYSQL_ROOT_PASSWORD=root
